@@ -10,7 +10,7 @@ let RollHand p: Player = {p with Hand = [|for _ in 1..5 do yield Dice.Roll ()|]}
 
 let SortHand p = 
     let counts = p.Hand |> Array.countBy id |> Array.sortBy (fun x -> snd x, fst x) |> Array.rev 
-    let hand : int array = counts |> Array.collect (fun x -> [| for _ in 1..snd x do yield fst x|])
+    let hand = counts |> Array.collect (fun x -> [| for _ in 1..snd x do yield fst x|])
     {p with Hand = hand}
 
 

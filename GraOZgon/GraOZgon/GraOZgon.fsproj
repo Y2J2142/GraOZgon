@@ -6,6 +6,7 @@
   <ItemGroup>
     <Compile Include="Dice.fs" />
     <Compile Include="Player.fs" />
+    <Compile Include="Score.fs" />
     <Compile Include="GraOZgon.fs" />
     <None Include="App.config" />
   </ItemGroup>
