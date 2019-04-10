@@ -13,7 +13,7 @@ open System
 
 let buildDir  = "./build/"
 let appReferences = !! "/**/*.fsproj"
-let dotnetcliVersion = "2.0.2"
+
 let mutable dotnetExePath = "dotnet"
 
 // --------------------------------------------------------------------------------------
@@ -47,9 +47,6 @@ Target "Clean" (fun _ ->
     CleanDirs [buildDir]
 )
 
-Target "InstallDotNetCLI" (fun _ ->
-    dotnetExePath <- DotNetCli.InstallDotNetSDK dotnetcliVersion
-)
 
 Target "Restore" (fun _ ->
     appReferences
@@ -72,7 +69,6 @@ Target "Build" (fun _ ->
 // --------------------------------------------------------------------------------------
 
 "Clean"
-  ==> "InstallDotNetCLI"
   ==> "Restore"
   ==> "Build"
 
